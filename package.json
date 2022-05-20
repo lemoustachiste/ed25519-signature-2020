@@ -20,15 +20,15 @@
     "lib/*.js"
   ],
   "dependencies": {
-    "@digitalbazaar/ed25519-verification-key-2020": "github:digitalbazaar/ed25519-verification-key-2020#convert-to-module",
-    "base58-universal": "github:digitalbazaar/base58-universal#fix-esm",
+    "@digitalbazaar/ed25519-verification-key-2020": "github:lemoustachiste/ed25519-verification-key-2020#convert-to-module",
+    "base58-universal": "github:lemoustachiste/base58-universal#fix-esm",
     "ed25519-signature-2020-context": "^1.1.0",
     "ed25519-signature-2018-context": "^1.1.0",
     "jsonld-signatures": "^9.3.1"
   },
   "devDependencies": {
-    "@digitalbazaar/ed25519-verification-key-2018": "github:digitalbazaar/ed25519-verification-key-2018#convert-to-module",
-    "@digitalbazaar/security-document-loader": "github:digitalbazaar/security-document-loader#convert-to-module",
+    "@digitalbazaar/ed25519-verification-key-2018": "github:lemoustachiste/ed25519-verification-key-2018#convert-to-module",
+    "@digitalbazaar/security-document-loader": "github:lemoustachiste/security-document-loader#convert-to-module",
     "c8": "^7.11.2",
     "chai": "^4.3.6",
     "cross-env": "^7.0.3",
