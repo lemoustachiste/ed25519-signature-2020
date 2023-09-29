@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9acfa988-b6d6-42b8-af00-5e5dc30f3ea8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Ed25519Signature2020.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Ed25519Signature2020.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Ed25519Signature2020.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/Ed25519Signature2020.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Ed25519VerificationKey2020.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/documentLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/documentLoader.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29LgVZpfIe4n2nnvSMFJ0L7iFn0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9acfa988-b6d6-42b8-af00-5e5dc30f3ea8" name="Default Changelist" comment="" />
+      <created>1652897804272</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652897804272</updated>
+      <workItem from="1652897806062" duration="3291000" />
+      <workItem from="1652977733152" duration="592000" />
+      <workItem from="1654213230498" duration="119000" />
+      <workItem from="1655241911033" duration="540000" />
+      <workItem from="1656204850520" duration="596000" />
+      <workItem from="1657028956064" duration="533000" />
+      <workItem from="1657554065555" duration="1159000" />
+      <workItem from="1658152275383" duration="1122000" />
+      <workItem from="1658238497343" duration="595000" />
+      <workItem from="1658757877275" duration="540000" />
+      <workItem from="1658851360337" duration="54000" />
+      <workItem from="1661170189845" duration="1018000" />
+      <workItem from="1662552652468" duration="925000" />
+      <workItem from="1663244808131" duration="258000" />
+      <workItem from="1663245535109" duration="90000" />
+      <workItem from="1688396110092" duration="773000" />
+      <workItem from="1688659121198" duration="522000" />
+      <workItem from="1688732362232" duration="591000" />
+      <workItem from="1695995664342" duration="273000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

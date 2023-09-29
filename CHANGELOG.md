@@ -1,6 +1,30 @@
 # @digitalbazaar/ed25519-signature-2020 Changelog
 
-## 4.0.0 - 2022-xx-xx
+## 5.2.0 - 2023-02-13
+
+### Removed
+- Remove unused `expansionMap` from `matchProof()` as it was removed
+  from `jsonld-signatures@11` which is required since version `5.0`.
+
+## 5.1.0 - 2023-02-07
+
+### Added
+- Allow custom `canonizeOptions` to be passed in the construction of
+  a suite as a stop-gap until hard requirements for canonize options
+  are either set or advised to be certain values by a W3C working group.
+
+## 5.0.0 - 2022-08-23
+
+### Changed
+- **BREAKING**: Use `jsonld-signatures@11` to get better safe mode
+  protections when canonizing.
+
+## 4.0.1 - 2022-06-06
+
+### Changed
+- Update to jsonld-signatures@10.
+
+## 4.0.0 - 2022-06-06
 
 ### Changed
 - **BREAKING**: Convert to module (ESM).

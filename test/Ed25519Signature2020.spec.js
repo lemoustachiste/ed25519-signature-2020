@@ -11,19 +11,26 @@ import {
 } from '@digitalbazaar/ed25519-verification-key-2020';
 
 import {
-  Ed25519VerificationKey2018
-} from '@digitalbazaar/ed25519-verification-key-2018';
+  controllerDoc2018,
+  credential,
+  mockKeyPair2018,
+  mockKeyPair2020,
+  mockPublicKey2018
+} from './mock-data.js';
 import {Ed25519Signature2020, suiteContext} from '../lib/index.js';
 import {
-  credential,
-  mockKeyPair2020,
-  mockKeyPair2018,
-  mockPublicKey2018,
-  controllerDoc2018
-} from './mock-data.js';
+  Ed25519VerificationKey2018
+} from '@digitalbazaar/ed25519-verification-key-2018';
 import {loader} from './documentLoader.js';
 
 const documentLoader = loader.build();
+
+const poisonData = [];
+for(let i = 0; i < 10; ++i) {
+  poisonData.push({
+    alumniOf: new Array(10).fill({alumniOf: 'poison'})
+  });
+}
 
 describe('Ed25519Signature2020', () => {
   describe('exports', () => {
@@ -65,6 +72,78 @@ describe('Ed25519Signature2020', () => {
       expect(signedCredential.proof.proofValue).to
         .equal('z3MvGcVxzRzzpKF1HA11EjvfPZsN8NAb7kXBRfeTm3CBg2gcJLQM5hZNmj6Cc' +
           'd9Lk4C1YueiFZvkSx4FuHVYVouQk');
+    });
+
+    it('should fail to sign a document with a poison graph', async () => {
+      const unsignedCredential = {...credential};
+      const keyPair = await Ed25519VerificationKey2020.from({
+        ...mockKeyPair2020
+      });
+      const suite = new Ed25519Signature2020({
+        key: keyPair,
+        canonizeOptions: {maxDeepIterations: 1}
+      });
+      suite.date = '2010-01-01T19:23:24Z';
+      unsignedCredential.alumniOf = poisonData;
+
+      let error;
+      try {
+        await jsigs.sign(unsignedCredential, {
+          suite,
+          purpose: new AssertionProofPurpose(),
+          documentLoader
+        });
+      } catch(e) {
+        error = e;
+      }
+      expect(error).to.exist;
+      expect(error.message).to.include('Maximum deep iterations');
+    });
+
+    it('should fail to sign with undefined term', async () => {
+      const unsignedCredential = JSON.parse(JSON.stringify(credential));
+      unsignedCredential.undefinedTerm = 'foo';
+      const keyPair = await Ed25519VerificationKey2020.from({
+        ...mockKeyPair2020
+      });
+      const suite = new Ed25519Signature2020({key: keyPair});
+      suite.date = '2010-01-01T19:23:24Z';
+
+      let error;
+      try {
+        await jsigs.sign(unsignedCredential, {
+          suite,
+          purpose: new AssertionProofPurpose(),
+          documentLoader
+        });
+      } catch(e) {
+        error = e;
+      }
+      expect(error).to.exist;
+      expect(error.name).to.equal('jsonld.ValidationError');
+    });
+
+    it('should fail to sign with relative type URL', async () => {
+      const unsignedCredential = JSON.parse(JSON.stringify(credential));
+      unsignedCredential.type.push('UndefinedType');
+      const keyPair = await Ed25519VerificationKey2020.from({
+        ...mockKeyPair2020
+      });
+      const suite = new Ed25519Signature2020({key: keyPair});
+      suite.date = '2010-01-01T19:23:24Z';
+
+      let error;
+      try {
+        await jsigs.sign(unsignedCredential, {
+          suite,
+          purpose: new AssertionProofPurpose(),
+          documentLoader
+        });
+      } catch(e) {
+        error = e;
+      }
+      expect(error).to.exist;
+      expect(error.name).to.equal('jsonld.ValidationError');
     });
 
     it('signs a document given a signer object', async () => {
@@ -199,6 +278,23 @@ describe('Ed25519Signature2020', () => {
         documentLoader
       });
       expect(result.verified).to.be.true;
+    });
+
+    it('should fail to verify a document with a poison graph', async () => {
+      const poisonCredential = {...signedCredential};
+      const suite = new Ed25519Signature2020({
+        canonizeOptions: {maxDeepIterations: 1}
+      });
+      poisonCredential.alumniOf = poisonData;
+
+      const result = await jsigs.verify(poisonCredential, {
+        suite,
+        purpose: new AssertionProofPurpose(),
+        documentLoader
+      });
+      expect(result.verified).to.be.false;
+      const {error} = result.results[0];
+      expect(error.message).to.include('Maximum deep iterations');
     });
 
     it('should fail verification if "proofValue" is not string',
@@ -341,8 +437,8 @@ describe('Ed25519Signature2020', () => {
         'The verification method (key) must contain ' +
         '\"https://w3id.org/security/suites/ed25519-2018/v1\" context.');
     });
-    it('should throw error when verification method contains 2018 key' +
-      'but 2020 context', async () => {
+    it('should throw error when verification method contains 2018 key ' +
+      'with (not-matching) 2020 context', async () => {
       const mockPublicKey2018With2020Context = {...mockPublicKey2018};
       // intentionally modify the context to ed25519 2020 context
       mockPublicKey2018With2020Context['@context'] =
